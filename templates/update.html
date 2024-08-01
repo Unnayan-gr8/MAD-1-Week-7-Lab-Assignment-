@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Student</title>
+    </head>
+    <body>
+        <h2>Update Student</h2>
+        <form action="/student/{{stud.student_id}}/update" method="POST" id="update-student-form">
+            <fieldset style="background-color:rgb(255, 191, 30);">
+                <div>
+                    <label>Roll Number:</label>
+                    <input type="text" name="roll" value="{{stud.roll_number}}" disabled />
+                </div>
+                <br>
+                <div>
+                    <label>First Name:</label>
+                    <input type="text" name="f_name" value="{{stud.first_name}}" required />
+                </div>
+                <br>
+                <div>
+                    <label>Last Name:</label>
+                    <input type="text" name="l_name" value="{{stud.last_name}}"/>
+                </div>
+                <br>
+                <div>
+                    <label>Select Courses: </label>
+                    <select name="course" id="course">
+                    {% for course in cou %}
+                        <option value = "{{course.course_id}}">{{course.course_name}}</option>
+                    {% endfor %}
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value = "Update">
+                </div>
+            </fieldset>
+        </form>
+    </body>
+</html>
